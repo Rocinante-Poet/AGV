@@ -1,0 +1,7 @@
+D:\Git\AGV.Models\bin\Debug\AGV.Models.dll
+D:\Git\AGV.Models\bin\Debug\AGV.Models.pdb
+D:\Git\AGV.Models\bin\Debug\AGVDLL.dll
+D:\Git\AGV.Models\obj\Debug\AGV.Models.csproj.CoreCompileInputs.cache
+D:\Git\AGV.Models\obj\Debug\AGV.Models.csproj.CopyComplete
+D:\Git\AGV.Models\obj\Debug\AGV.Models.dll
+D:\Git\AGV.Models\obj\Debug\AGV.Models.pdb

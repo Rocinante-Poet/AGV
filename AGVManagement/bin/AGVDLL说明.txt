@@ -1,0 +1,245 @@
+/// <summary>
+/// dll名字 专门给小汤加的
+/// </summary>
+public String dllName { set; get; }
+
+///线路
+readFlashRFID(ptr, Group, AgvID, read);
+			
+/// <summary>
+/// 打开串口
+/// </summary>
+/// <param name="portNum">串口号</param>
+/// <param name="portBaud">波特率</param>
+/// <returns>0 失败 1 成功</returns>
+public IntPtr openPort(int portNum, int portBaud)
+
+/// <summary>
+/// 关闭串口
+/// </summary>
+public int closePort(IntPtr handle)
+
+/// <summary>
+/// clock信号,每秒发送一次
+/// </summary>
+/// <param name="handle">串口硬件地址</param>
+/// <param name="agvNum"></param>
+/// <param name="clock">心跳标志位，先默认为1</param>
+/// <returns>0. faile 1.success</returns>
+public int Clock(IntPtr handle, int agvNum, int clock)
+
+/// <summary>
+/// 复位AGV
+/// </summary>
+/// <param name="handle">串口硬件地址</param>
+/// <param name="agvNum"></param>
+/// <returns>0. faile 1.success</returns>
+public int RestAGV(IntPtr handle, int agvNum)
+
+/// <summary>
+/// AGV HOOK
+/// </summary>
+/// <param name="agvNum"></param>
+/// <returns>0. faile 1.success</returns>
+public int HOOKAGV(IntPtr handle, int agvNum)
+
+/// <summary>
+/// 运行准备开关
+/// </summary>
+/// <param name="agvNum"></param>
+/// <param name="readStatus">0. readoff  1.readon</param>
+/// <returns>0. faile 1.success</returns>
+public int ReadyOnAGV(IntPtr handle, int agvNum, int readStatus)
+
+/// <summary>
+/// 启动AGV
+/// </summary>
+/// <param name="agvNum">小车编号</param>
+/// <returns>0. faile 1.success</returns>
+public int StartAGV(IntPtr handle, int agvNum)
+
+/// <summary>
+/// 停止小车
+/// </summary>
+/// <param name="agvNum"></param>
+/// <returns>0. faile 1.success</returns>
+public int StopAGV(IntPtr handle, int agvNum)
+
+/// <summary>
+/// 左转
+/// </summary>
+/// <param name="agvNum"></param>
+/// <returns>0. faile 1.success</returns>
+public int TurnLeftAGV(IntPtr handle, int agvNum)
+
+/// <summary>
+/// 右转
+/// </summary>
+/// <param name="agvNum"></param>
+/// <returns>0. faile 1.success</returns>
+public int TurnRightAGV(IntPtr handle, int agvNum)
+
+/// <summary>
+/// 取消转弯
+/// </summary>
+/// <param name="agvNum"></param>
+/// <returns>0. faile 1.success</returns>
+public int CancelTurnAGV(IntPtr handle, int agvNum)
+
+/// <summary>
+/// 改变速度
+/// </summary>
+/// <param name="agvNum"></param>
+/// <param name="speed">速度值0~9</param>
+/// <param name="PBS">pbs号 int型 0.关闭pbs 1.pbs预设的1号区域顺延最大到15</param>
+/// <returns>0. faile 1.success</returns>
+public int changeSpeed(IntPtr handle, int agvNum, int PBS, int speed)
+
+/// <summary>
+/// 改变PBS
+/// </summary>
+/// <param name="agvNum"></param>
+/// <param name="PBS">pbs号 int型 0.关闭pbs 1.pbs预设的1号区域顺延最大到15</param>
+/// <param name="speed">speed int型 0 到15</param>
+/// <returns>0. faile 1.success</returns>
+public int changePBS(IntPtr handle, int agvNum, int PBS, int speed)
+
+/// <summary>
+/// 改变程序
+/// </summary>
+/// <param‘’
+/// 状态回读
+/// </summary>        
+public CarStatus read(IntPtr handle, int agvNum)
+
+/// <summary>
+/// 发送RFID
+/// </summary>
+/// <param name="handle">串口句柄</param>
+/// <param name="agvNum">agv号</param>
+/// <param name="rfid">rfid类  RFIDClass</param>
+/// <returns>0. faile 1.success</returns>
+public int sendRFID(IntPtr handle, int agvNum, RFIDClass rfid)
+
+/// <summary>
+/// 前后进切换
+/// </summary>
+/// <param name="handle"></param>
+/// <param name="agvNum"></param>
+/// <returns></returns>
+public int changeRunDirection(IntPtr handle, int agvNum)
+
+//command1组功能块
+public String command1Composite()
+
+//command2组功能块
+public String command2Composite()
+
+//carstatus类解释
+public int carNum { get; set; }   //agv号
+public String runningStatus { get; set;}  
+public String programStatus { get; set; }
+public String speedStatus { get; set; }
+public String powerStatus { get; set; }
+public String rfidStatus { get; set; }
+public bool IsRunning { get; set; }   //是否在运行 true.运行中  false.未运行
+public bool errorSwitch { get; set; }   //是否有报错或报警 true.有 false.没有
+public bool carAutoRun { get; set; }  //是否在自动运行
+public bool agvRunReady { get; set; }   //是否在运行准备状态下 ture.是  false.否
+public bool agvLineRead { get; set; }  //是否在线上   true.是  false否
+public bool agvDriverDown { get; set; }  //驱动是否下降
+public bool agvHookUP { get; set; }  //hook是否上升
+public bool agvRunDirection { get; set; }  //前进判断  true.前进  false.后退
+public bool agvObstacleSlow { get; set; }  //障碍物判断慢行
+public bool agvObstacleStop { get; set; }  //障碍物判断停止
+public int programNo { get; set; }  //当前运行的程序号
+public int stepNo { get; set; }   //当前运行step
+public int speedNo { get; set; }  //当前运行的速度
+public int pbsArea { get; set; }  //当前的PBS
+public String errorStr { get; set; }  //报错信息
+public int errorCode { get; set; }  //报错编号
+public float powerCurrentF { get; set; }  //当前电压
+public bool agvRunRight { get; set; }  //是否右转中
+public bool agvRunLeft { get; set; }  //是否左转中
+
+//rfidclass类解释
+//总共6个存储块
+//0.rfid号
+//1.指令1 包含的内容（0.clock 1.启动 2.停止 3.复位 4.运准on 5.运准off 6.空 7.hook 8.前后进切换 9-15.空）
+//2.指令2 包含的内容（0-7.program 8-15.空）
+//3.指令3 包含的内容（0-3.速度 4-7 pbs 8.刹车有 9.刹车无 10.充电停止（刹车有） 11.右转 12.左转 13.转弯解除 14-15.空）
+//4.指令4 包含的内容（0-15. 空）
+//5.指令5 包含的内容（0-15. 空）
+public int rfidID { set; get; }   //rfid号
+public int startSwitch { set; get; } //启动停止标识（0.无动作 1.启动 2.停止）
+public int restSwitch { set; get; } //复位标识（0.不复位 1.复位）
+public int masterSwitch { set; get; } //运准标识（0.无动作 1.运准on 2.运准off）
+public int hookSwitch { set; get; } //hook标识（0.hook无动作 1.hook升或降）
+public int directionSwitch { set; get; } //方向切换（0.保持 1.切换）
+public int programNo { set; get; }   //program编号 0 -255  999无变化
+public int speedNo { set; get; }  //速度编号 0 -15  999无变化
+public int pbsNo { set; get; }    //pbs编号 0-15   999无变化
+public int stopMode { set; get; } //刹车脉冲 （0. 无动作 1.刹车有 2.充电停止（刹车有） 3.刹车无）
+public int trunSwitch { set; get; } //转弯指示（0.无动作 1.左转 2.右转 3.解除转弯）
+public int runDirection { set; get; } //前后进切换 （0.不切换 1.切换）
+
+/// <summary>
+/// 发送全部指令
+/// </summary>
+/// <param name="handle">串口句柄</param>
+/// <param name="agvNum">agv号</param>
+/// <param name="rfid">rfid类  RFIDClass</param>
+/// <returns>0. faile 1.success</returns>
+public int sendAllCommand(IntPtr handle, int agvNum, RFIDClass rfid)
+
+//stm32核心板复位
+public void CORE_BOARD_REST(IntPtr handle, int agvNum)
+
+//===================2017-1-1新增加函数===================
+//按钮类 ButtonClass
+//总共4个按钮 button1，button2，button3，button4
+int[] buttonStatus = new int[4];
+//1号按钮
+public int button1 { set; get; }
+//2号按钮
+public int button2 { set; get; }
+//3号按钮
+public int button3 { set; get; }
+//4号按钮
+public int button4 { set; get; }
+
+/// <summary>
+/// 根据button按钮状态来设置button状态
+/// </summary>
+public void setButtonStatus()
+
+//返回按钮状态数组  
+//0. 1号按钮  0.未摁下  1.摁下
+//1. 2号按钮  0.未摁下  1.摁下
+//2. 3号按钮  0.未摁下  1.摁下
+//3. 4号按钮  0.未摁下  1.摁下
+public int[] getButtonStatus()
+
+/// <summary>
+/// 构造函数
+/// </summary>
+/// <param name="ip">io server ip地址</param>
+/// <param name="IOStatus">按钮输入模式0.低电平 1.高电平，默认低电平</param>        
+public ButtonClass(String ip,int IOStatus)
+
+/// <summary>
+/// 初始化连接
+/// </summary>
+/// <returns>连接是否建立成功  true.成功  false.失败</returns>
+public Boolean ConnectServer()
+
+/// <summary>
+/// 发送数据
+/// </summary>
+/// <param name="sendMode">0.初始化，都将该数据调整为低电平，返回长度为20字节
+///                        1.读取通道1
+///                        2.读取通道2
+///                        3.读取通道3
+///                        4.读取通道4
+///                        5.读取全部通道</param>
+public Boolean sendData(int sendMode)

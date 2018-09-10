@@ -1,0 +1,12 @@
+D:\Git\AGV.BLL\obj\x86\Debug\AGV.BLL.csproj.CoreCompileInputs.cache
+D:\Git\AGV.BLL\bin\x86\Debug\AGV.BLL.dll
+D:\Git\AGV.BLL\bin\x86\Debug\AGV.BLL.pdb
+D:\Git\AGV.BLL\bin\x86\Debug\AGV.DAL.dll
+D:\Git\AGV.BLL\bin\x86\Debug\AGV.Models.dll
+D:\Git\AGV.BLL\bin\x86\Debug\AGVDLL.dll
+D:\Git\AGV.BLL\bin\x86\Debug\AGV.DAL.pdb
+D:\Git\AGV.BLL\bin\x86\Debug\AGV.Models.pdb
+D:\Git\AGV.BLL\obj\x86\Debug\AGV.BLL.csprojAssemblyReference.cache
+D:\Git\AGV.BLL\obj\x86\Debug\AGV.BLL.csproj.CopyComplete
+D:\Git\AGV.BLL\obj\x86\Debug\AGV.BLL.dll
+D:\Git\AGV.BLL\obj\x86\Debug\AGV.BLL.pdb

@@ -1,0 +1,8 @@
+D:\Git\AGV.Models\obj\x86\Debug\AGV.Models.csprojAssemblyReference.cache
+D:\Git\AGV.Models\obj\x86\Debug\AGV.Models.csproj.CoreCompileInputs.cache
+D:\Git\AGV.Models\bin\x86\Debug\AGV.Models.dll
+D:\Git\AGV.Models\bin\x86\Debug\AGV.Models.pdb
+D:\Git\AGV.Models\bin\x86\Debug\AGVDLL.dll
+D:\Git\AGV.Models\obj\x86\Debug\AGV.Models.csproj.CopyComplete
+D:\Git\AGV.Models\obj\x86\Debug\AGV.Models.dll
+D:\Git\AGV.Models\obj\x86\Debug\AGV.Models.pdb
