@@ -1,0 +1,136 @@
+﻿<Window x:Class="AGVManagement.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AGVManagement"
+        mc:Ignorable="d"
+        Title="AGV Management" Height="1043" Width="1520"  Icon="Images/机器人.png" WindowState="Maximized" MinWidth="800" MinHeight="700">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="60*" />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="30*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"></ColumnDefinition>
+                <ColumnDefinition Width="3"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Menu Grid.ColumnSpan="3" Name="Menu" FontSize="20" Background="#FFE6E3E3" Height="35" FontFamily="Microsoft YaHei">
+                <Separator Width="20" />
+                <MenuItem Header="操作" Height="35">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/用户.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Header="退出" Click="Close_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/退出.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="用户管理">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/退出.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="启动管理" Click="OpenMap_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/串口.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="串口设置" Name="PortDern" Click="PortDern_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/串口.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator Width="10" />
+                <Separator Width="10" />
+                <MenuItem Header="新建地图" Name="Map_Add" Click="Map_Add_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/添加.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="编辑地图" Name="Map_btn" Click="Map_btn_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/地图.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="编辑线路" Name="Circui" Click="Circui_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/线路.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="编辑信标" Name="beaconCR" Click="BeaconCR_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/信标.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator Width="10" />
+
+                <Separator Width="10" />
+                <!--<MenuItem Header="历史" />-->
+                <Separator Width="10" />
+                <MenuItem  Header = "关于" />
+            </Menu>
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="3"  Background="#FFE4C4" Orientation="Horizontal">
+                <Button FontSize="20"  IsEnabled="False"  Name="Open" Click="Btnset_Click" Content="打开串口" Height="34" Width="110" Style="{DynamicResource btn-success}" Margin="20,0,0,0" />
+                <Image x:Name="SwitchImg" Source="Images/电子元器件红.png" Width="24" Margin="10,0" />
+                <Label x:Name="SwitchText" FontSize="20" Content = "串口状态：关" Height="25" Margin="0,10" />
+                <Button FontSize="20"  x:Name="Btnswitch"  IsEnabled="False" Click="Btnswitch_Click" Content="关闭串口" Height="35" Width="110" Style="{DynamicResource btn-danger}" Margin="20,0,0,0" />
+                <Label FontSize="20" Content = "地图：" Height="25" Margin="20,10,0,10" />
+                <ComboBox x:Name="Maplistq"  FontSize="18" FontFamily="宋体" FontWeight="Black" SelectedIndex="0"  Width="160" SelectionChanged="Maplist_SelectionChanged" Margin="10,0,0,0"></ComboBox>
+                <Button FontSize="20" Content="调试" Width="80" Height="35" Style="{DynamicResource btn-info}" Margin="50,0,0,0" />
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="2" Background="#F2F2F2" HorizontalScrollBarVisibility="Auto">
+                <Canvas Name="MapIN"  Background="#F2F2F2"></Canvas>
+            </ScrollViewer>
+
+            <TabControl Grid.Row="2" Grid.Column="2" FontSize="16">
+                <TabItem Header="AGV信息">
+                    <DataGrid x:Name="TabAgvData" ItemsSource="{Binding}">
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="串口信息">
+                    <DataGrid x:Name="TabSerialPortData" ItemsSource="{Binding}">
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+            <TabControl FontSize="16" Grid.Row="4"  Grid.ColumnSpan="3">
+                <TabItem Header="运行信息">
+                    <DataGrid x:Name="TabAgvMoveData" Cursor="Hand" ItemsSource="{Binding}" SelectionMode="Single" IsReadOnly="True" MouseLeftButtonUp="TabAgvMoveData_MouseLeftButtonUp">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="状态" Width="0.5*" CanUserReorder="False">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox Content="{Binding type}"  Name="CheckBoxDN"  Foreground="Red" Style="{DynamicResource checkbox has-error}" IsChecked="{x:Null}"  IsHitTestVisible="False" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="AGV编号" Binding="{Binding TagName}"  Width="*" Foreground="Black"  FontWeight="Black" FontSize="20" />
+                            <DataGridTextColumn Header="速度"  Binding="{Binding Speed}" Width="*" Foreground="Black" />
+                            <DataGridTextColumn Header="转弯" Binding="{Binding turn}"  Width="*" Foreground="Black" />
+                            <DataGridTextColumn Header="方向" Binding="{Binding Dir}"  Width="*" Foreground="Black" />
+                            <DataGridTextColumn Header="Hook"  Binding="{Binding Hook}"  Width="*" Foreground="Black" />
+                            <DataGridTextColumn Header="RFID"   Binding="{Binding Rfid}" Width="*" Foreground="Black" />
+                            <DataGridTextColumn Header="Program"  Binding="{Binding Program}"  Width="*" Foreground="Black" />
+                            <DataGridTextColumn Header="Step"   Binding="{Binding Step}" Width="*" Foreground="Black" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="通道信息">
+                    <ScrollViewer  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <TextBlock Name="Log" ></TextBlock>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+            <GridSplitter Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch"  Background="Gray" Width="3"></GridSplitter>
+            <GridSplitter Grid.Row="3" HorizontalAlignment="Stretch" Grid.ColumnSpan="5" Background="Gray" Height="3"></GridSplitter>
+        </Grid>
+    </Grid>
+</Window>

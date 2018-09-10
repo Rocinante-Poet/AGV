@@ -1,0 +1,41 @@
+﻿<Window x:Class="AGVManagement.AddMap"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AGVManagement"
+        mc:Ignorable="d"
+        Title="添加地图" Height="320" Width="400" Icon="Images/添加地图.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="地图名称:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="0"  FontSize="16" Width="80" />
+            <TextBox  Name="MapSizeN" FontSize="16"   Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" />
+            <Label Content="地图宽度:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="0"  FontSize="16" Width="80" />
+            <TextBox  Name="MapSizeW" FontSize="16"   Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" />
+            <Label Content="地图高度:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="0"  FontSize="16" Width="80" />
+            <TextBox  Name="MapSizeH" FontSize="16"   Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" />
+            <Button Content="确定" Name="MapSum" Click="MapSum_Click"  FontSize="18" Margin="0,0,-60,0" Grid.Row="3"  Width="100" Height="40" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"></Button>
+            <Button Content="取消" Name="OFFMp" Click="OFFMp_Click"
+                    Margin="60,0,0,0" FontSize="18" Grid.Row="3"  Width="100" Height="40" Grid.Column="1"></Button>
+        </Grid>
+        
+       
+        <!--<Label Content="地图长度" FontSize="16" HorizontalAlignment="Left" Margin="74,98,0,0" VerticalAlignment="Top" Width="80" />
+        <Label Content="地图宽度" FontSize="16" HorizontalAlignment="Left" Margin="74,157,0,0" VerticalAlignment="Top" Width="80" />
+        
+        <TextBox Name="MapSizeL" FontSize="16" HorizontalAlignment="Left" Height="30" Margin="173,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151" />
+        <TextBox Name="MapSizeW" FontSize="16" HorizontalAlignment="Left" Height="30" Margin="173,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151" />
+        <Button Content="确定" FontSize="16" HorizontalAlignment="Left" Margin="151,220,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_ok" />
+        <Button Content="取消" FontSize="16" HorizontalAlignment="Left" Margin="272,220,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_cancel" />-->
+    </Grid>
+</Window>
